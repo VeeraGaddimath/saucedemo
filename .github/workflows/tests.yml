@@ -1,10 +1,16 @@
 name: Run Tests Daily
 
 on:
-  schedule:
-    # 10 AM IST = 4:30 AM UTC
-    - cron: '30 4 * * *'
-  workflow_dispatch:
+    push:
+      branches:
+        - main
+    pull_request:
+      branches:
+        - main
+    schedule:
+        # 10 AM IST = 4:30 AM UTC
+        - cron: '30 4 * * *'
+    workflow_dispatch:
 
 jobs:
   test:
